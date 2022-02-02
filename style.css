@@ -7,6 +7,18 @@ div {
   margin: 5px 5px;
 }
 
+span.red {
+  color: #d90814;
+}
+
+span.green {
+  color: #2ea562;
+}
+
+span.orange {
+  color: #ee964b;
+}
+
 .output {
   font-family: courier, monospace;
   display: block;
