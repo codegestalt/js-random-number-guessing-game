@@ -10,7 +10,17 @@ function startGame() {
   logLine("Please enter a number between 0 and 100.\n")
 
   document.addEventListener('answerSubmit', (event) => {
-    logLine(`You've guessed ${event.detail}, the random number was ${randomNumber}\n`)
+
+    var guess = parseInt(event.detail)
+
+    console.log(randomNumber)
+    console.log(guess)
+
+    if (guess < 0) logLine("Please enter a positive number.\n");
+    if (guess > 100) logLine("Please enter a number below 100.\n");
+    if (guess < randomNumber) logLine("Your number is too low. Try again.\n");
+    if (guess > randomNumber) logLine("Your number is too high. Try again.\n");
+    if (guess === randomNumber) logLine("Yaaay, you won!\n");
   })
 }
 
@@ -32,6 +42,5 @@ function setupFormField() {
     const event = new CustomEvent('answerSubmit', { detail: textField.value });
     document.dispatchEvent(event);
     textField.value = ""
-
   });
 }
